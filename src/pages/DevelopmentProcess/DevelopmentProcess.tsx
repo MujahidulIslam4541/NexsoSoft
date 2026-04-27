@@ -3,12 +3,12 @@ import {DotLottieReact} from '@lottiefiles/dotlottie-react';
 
 export default function DevelopmentProcess() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24 md:py-32 font-outfit text-white overflow-hidden">
+    <section className="max-w-7xl mx-auto px-6 py-24 md:py-32 font-outfit !bg-white overflow-hidden">
       <div className="text-center space-y-4 max-w-5xl mx-auto">
-        <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-zinc-900 dark:text-zinc-50 font-outfit">
+        <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-zinc-900 font-outfit">
           Our Strategic Development Process
         </h2>
-        <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl mx-auto font-outfit">
+        <p className="text-zinc-600 text-lg leading-relaxed max-w-2xl mx-auto font-outfit">
           We partner with you to engineer solutions that scale. From initial
           discovery to final deployment, we ensure every step is handled with
           architectural precision.
@@ -19,7 +19,7 @@ export default function DevelopmentProcess() {
         {/* STEP 01 - Image Left, Text Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative flex justify-center">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/8ddf9e05-d506-4b9d-ba65-0725c4242e9f/gyX6LlaFMh.lottie"
@@ -29,14 +29,14 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               01
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 01
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Discovery
               </h3>
             </div>
@@ -60,14 +60,14 @@ export default function DevelopmentProcess() {
         {/* STEP 02 - Text Left, Image Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative order-last md:order-first">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               02
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 02
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Design
               </h3>
             </div>
@@ -87,7 +87,7 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative flex justify-center order-first md:order-last">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/e451eb3b-f24e-43e3-a5ea-3df9dd43f11a/6SuhbeUjIk.lottie"
@@ -101,7 +101,7 @@ export default function DevelopmentProcess() {
         {/* STEP 03 - Image Left, Text Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative flex justify-center">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/a0d03b15-c39c-4004-8bb9-72b843eba18c/q2EvKtZs3x.lottie"
@@ -111,14 +111,14 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               03
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 03
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Development
               </h3>
             </div>
@@ -142,14 +142,14 @@ export default function DevelopmentProcess() {
         {/* STEP 04 - Text Left, Image Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative order-last md:order-first">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               04
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 04
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Testing
               </h3>
             </div>
@@ -169,7 +169,7 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative flex justify-center order-first md:order-last">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/b685a7d3-2953-4368-bc22-7eaa8100ca32/is83ivHM4F.lottie"
@@ -183,7 +183,7 @@ export default function DevelopmentProcess() {
         {/* STEP 05 - Image Left, Text Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative flex justify-center">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/e882bf67-e306-42a8-b6de-2f4b48aaf968/1qFH4uxT22.lottie"
@@ -193,14 +193,14 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               05
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 05
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Improvement
               </h3>
             </div>
@@ -224,14 +224,14 @@ export default function DevelopmentProcess() {
         {/* STEP 06 - Text Left, Image Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16 lg:gap-32">
           <div className="relative order-last md:order-first">
-            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-white/4 select-none -z-10 leading-none">
+            <span className="absolute -top-16 md:-top-24 left-0 text-[120px] md:text-[180px] font-black text-zinc-200 select-none -z-10 leading-none">
               06
             </span>
             <div className="mb-8 space-y-2">
               <span className="text-primary font-medium tracking-widest text-sm uppercase block">
                 Step 06
               </span>
-              <h3 className="text-4xl md:text-5xl font-bold text-white/90 tracking-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
                 Completion
               </h3>
             </div>
@@ -251,7 +251,7 @@ export default function DevelopmentProcess() {
             </div>
           </div>
           <div className="relative flex justify-center order-first md:order-last">
-            <div className="absolute inset-0 blur-[120px] rounded-full scale-150"></div>
+            <div className="absolute inset-0 blur-[120px] rounded-full scale-150 bg-green-400/30"></div>
             <div className="w-full max-w-100 lg:max-w-125 aspect-square relative z-10">
               <DotLottieReact
                 src="https://lottie.host/df2ce67b-7845-4c8d-af43-1943d139397b/WX6N92vYMy.lottie"

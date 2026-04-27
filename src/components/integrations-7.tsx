@@ -24,13 +24,13 @@ import {InfiniteSlider} from '@/components/infinite-slider';
 const TECH_ROW_1 = [
   {
     name: 'OpenAI',
-    icon: <SiOpenai className="text-zinc-900 dark:text-white" />,
+    icon: <SiOpenai className="text-slate-900" />,
   },
   {name: 'Stripe', icon: <SiStripe className="text-indigo-600" />},
   {name: 'AWS', icon: <FaAws className="text-orange-500" />},
   {
     name: 'GitHub',
-    icon: <SiGithub className="text-zinc-900 dark:text-white" />,
+    icon: <SiGithub className="text-slate-900" />,
   },
   {name: 'React', icon: <SiReact className="text-sky-500" />},
   {name: 'Docker', icon: <SiDocker className="text-blue-500" />},
@@ -42,7 +42,7 @@ const TECH_ROW_2 = [
   {name: 'Supabase', icon: <SiSupabase className="text-emerald-500" />},
   {
     name: 'Next.js',
-    icon: <SiNextdotjs className="text-zinc-900 dark:text-white" />,
+    icon: <SiNextdotjs className="text-slate-900" />,
   },
   {name: 'Cloudflare', icon: <SiCloudflare className="text-orange-500" />},
   {name: 'MongoDB', icon: <SiMongodb className="text-emerald-600" />},
@@ -51,7 +51,7 @@ const TECH_ROW_2 = [
 const TECH_ROW_3 = [
   {
     name: 'Prisma',
-    icon: <SiPrisma className="text-zinc-900 dark:text-white" />,
+    icon: <SiPrisma className="text-slate-900" />,
   },
   {name: 'Slack', icon: <SiSlack className="text-purple-600" />},
   {name: 'Redis', icon: <SiRedis className="text-red-600" />},
@@ -59,18 +59,18 @@ const TECH_ROW_3 = [
   {name: 'Tailwind', icon: <SiTailwindcss className="text-sky-400" />},
   {
     name: 'OpenAI',
-    icon: <SiOpenai className="text-zinc-900 dark:text-white" />,
+    icon: <SiOpenai className="text-slate-900" />,
   },
 ];
 
 export default function IntegrationsSection() {
   return (
-    <section className="bg-white dark:bg-background/50 py-12 md:py-24 overflow-hidden border-t border-zinc-100 dark:border-gray-700">
+    <section className="bg-white py-12 md:py-24 overflow-hidden border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="bg-muted/10 group relative mx-auto max-w-88 items-center justify-between space-y-6 mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md lg:max-w-xl">
+        <div className="bg-slate-100 group relative mx-auto max-w-88 items-center justify-between space-y-6 mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md lg:max-w-xl">
           <div
             role="presentation"
-            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[48px_48px] opacity-50"></div>
+            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[48px_48px] opacity-50"></div>
 
           <div className="py-4">
             <InfiniteSlider gap={32} speed={25} speedOnHover={15}>
@@ -98,9 +98,9 @@ export default function IntegrationsSection() {
 
           <div className="absolute inset-0 m-auto flex size-fit justify-center">
             <div className="relative group">
-              <div className="absolute -inset-4 bg-zinc-900/5 dark:bg-white/5 rounded-full blur-2xl animate-pulse" />
+              <div className="absolute -inset-4 bg-primary/5 rounded-full blur-2xl animate-pulse" />
               <IntegrationCard
-                className="size-20 bg-white/80 dark:bg-zinc-900/80 shadow-2xl backdrop-blur-xl border-zinc-200/50 dark:border-white/10 ring-8 ring-zinc-50 dark:ring-zinc-900/50"
+                className="size-20 bg-white shadow-2xl backdrop-blur-xl border-green-200/50 ring-8 ring-slate-50"
                 isCenter={true}>
                 <LogoIcon className="size-10" />
               </IntegrationCard>
@@ -109,17 +109,17 @@ export default function IntegrationsSection() {
         </div>
 
         <div className="mx-auto mt-16 max-w-2xl space-y-6 text-center">
-          <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-zinc-900 dark:text-zinc-50 font-outfit">
+          <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-slate-900 font-outfit">
             Seamlessly Integrated Ecosystem
           </h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <p className="text-lg text-slate-600 leading-relaxed">
             We build and deploy using an industry-leading technical stack,
             ensuring your software is scalable, secure, and ready for the global
             market.
           </p>
 
           {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="rounded-full px-8 shadow-lg shadow-zinc-950/20 dark:shadow-white/5">
+            <Button size="lg" className="rounded-full px-8 shadow-lg shadow-zinc-950/20">
               Get Started Now
             </Button>
             <Button variant="outline" size="lg" className="rounded-full px-8" asChild>
@@ -144,7 +144,7 @@ const IntegrationCard = ({
   return (
     <div
       className={cn(
-        'bg-white dark:bg-zinc-900 relative z-20 flex size-14 rounded-full border border-zinc-100 dark:border-zinc-200 shadow-sm transition-all duration-300 hover:border-zinc-300 dark:hover:border-zinc-700',
+        'bg-white relative z-20 flex size-14 rounded-full border border-slate-200 shadow-sm transition-all duration-300 hover:border-green-400',
         className,
       )}>
       <div

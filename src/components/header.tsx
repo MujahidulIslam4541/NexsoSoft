@@ -34,7 +34,7 @@ export const HeroHeader = () => {
           className={cn(
             'mx-auto max-w-7xl rounded-full px-6 transition-all duration-300 lg:px-12',
             scrolled &&
-              'bg-background/50 backdrop-blur-2xl border border-white/10 shadow-lg',
+              'bg-white/80 backdrop-blur-2xl border border-slate-200 shadow-lg',
           )}>
           <motion.div
             key={1}
@@ -58,7 +58,7 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-primary transition-colors duration-200 text-lg">
+                      className="text-slate-600 hover:text-primary transition-colors duration-200 text-lg">
                       {item.name}
                     </Link>
                   </li>
@@ -105,7 +105,7 @@ export const HeroHeader = () => {
                   <Link
                     href={item.href}
                     onClick={() => setMenuState(false)}
-                    className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 block py-2 border-b border-zinc-100 dark:border-zinc-800 last:border-none">
+                    className="text-lg font-medium text-slate-600 hover:text-primary block py-2 border-b border-slate-200 last:border-none transition-colors duration-200">
                     {item.name}
                   </Link>
                 </li>

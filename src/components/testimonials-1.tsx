@@ -37,14 +37,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-zinc-50 dark:bg-background @container py-24 md:py-32 border-t border-zinc-100 dark:border-gray-500">
+    <section className="bg-white @container py-24 md:py-32 border-t border-slate-200">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center space-y-4">
-          <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-zinc-900 dark:text-white font-outfit">
+          <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-slate-900 font-outfit">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl mx-auto font-outfit">
-            We&apos;ve collaborated with fa st-growing startups and established
+          <p className="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto font-outfit">
+            We&apos;ve collaborated with fast-growing startups and established
             enterprises to build software that moves the needle.
           </p>
         </div>
@@ -52,12 +52,12 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-zinc-900/50 border border-zinc-100 dark:border-[#1e293b] space-y-6 rounded-3xl p-8 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-zinc-200 dark:hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-200/50 dark:hover:shadow-none hover:-translate-y-1">
-              <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed font-outfit italic">
+              className="bg-slate-50 border border-slate-200 space-y-6 rounded-3xl p-8 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-green-300 hover:shadow-lg hover:shadow-green-200/30 hover:-translate-y-1">
+              <p className="text-slate-600 text-lg leading-relaxed font-outfit italic">
                 "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-4">
-                <div className="relative size-12 shrink-0 overflow-hidden rounded-full border border-zinc-100 dark:border-zinc-400">
+                <div className="relative size-12 shrink-0 overflow-hidden rounded-full border border-slate-200">
                   <Image
                     src={testimonial.avatar}
                     alt={testimonial.name}
@@ -66,10 +66,10 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="space-y-0.5">
-                  <p className="text-base font-semibold text-zinc-900 dark:text-zinc-50 font-outfit leading-tight">
+                  <p className="text-base font-semibold text-slate-900 font-outfit leading-tight">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-500 font-outfit">
+                  <p className="text-sm text-slate-500 font-outfit">
                     {testimonial.role}
                   </p>
                 </div>

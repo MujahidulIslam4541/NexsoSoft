@@ -11,7 +11,7 @@ export const Logo = ({className}: {className?: string}) => {
         height={32}
         className="w-8 h-8"
       />
-      <span className="font-outfit text-xl font-semibold italic tracking-tight text-primary dark:text-primary">
+      <span className="font-outfit text-xl font-semibold italic tracking-tight text-primary">
         StackMaJIx
       </span>
     </div>

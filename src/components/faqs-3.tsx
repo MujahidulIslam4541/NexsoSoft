@@ -56,7 +56,7 @@ export default function FAQsThree() {
   ];
 
   return (
-    <section className="bg-muted dark:bg-background py-20">
+    <section className="bg-white py-20 border-t border-slate-200">
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <div className="flex flex-col gap-10 md:flex-row md:gap-16">
           <div className="md:w-1/3">
@@ -64,11 +64,11 @@ export default function FAQsThree() {
               <h2 className="mt-4 text-3xl font-bold text-primary">
                 Frequently Asked Questions
               </h2>
-              <p className="text-muted-foreground mt-4">
+              <p className="text-slate-600 mt-4">
                 Can&apos;t find what you&apos;re looking for? Contact our{' '}
                 <Link
                   href="#"
-                  className="text-primary font-medium hover:underline">
+                  className="text-primary font-medium hover:text-green-600 transition-colors">
                   customer support team
                 </Link>
               </p>
@@ -80,7 +80,7 @@ export default function FAQsThree() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="bg-background shadow-xs rounded-lg border px-4 last:border-b">
+                  className="bg-slate-50 shadow-xs rounded-lg border border-slate-200 px-4 last:border-b transition-colors hover:border-green-300">
                   <AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline">
                     <div className="flex items-center gap-3">
                       <div className="flex size-6 ">
@@ -89,12 +89,12 @@ export default function FAQsThree() {
                           className="m-auto size-4 text-primary"
                         />
                       </div>
-                      <span className="text-base">{item.question}</span>
+                      <span className="text-base text-slate-900">{item.question}</span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-5">
                     <div className="px-9">
-                      <p className="text-base text-gray-400">{item.answer}</p>
+                      <p className="text-base text-slate-600">{item.answer}</p>
                     </div>
                   </AccordionContent>
                 </AccordionItem>

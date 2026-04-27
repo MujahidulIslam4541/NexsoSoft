@@ -9,7 +9,7 @@ import DevelopmentProcess from '@/pages/DevelopmentProcess/DevelopmentProcess';
 
 export default function Home() {
   return (
-    <div className="text-white relative min-h-screen font-outfit">
+    <div className="relative min-h-screen font-outfit bg-white dark:bg-slate-950 text-slate-900 dark:text-white">
       <HeroSection />
 
       <div id="features">

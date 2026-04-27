@@ -20,7 +20,7 @@ const INTEGRATIONS = [
   {
     name: 'OpenAI (GPT-4)',
     description: 'Cutting-edge AI automation and reasoning.',
-    icon: <SiOpenai className="text-zinc-950 dark:text-white" />,
+    icon: <SiOpenai className="text-slate-900" />,
   },
   {
     name: 'Claude (Anthropic)',
@@ -65,7 +65,7 @@ const INTEGRATIONS = [
   {
     name: 'GitHub Enterprise',
     description: 'Advanced source control and CI/CD automation.',
-    icon: <SiGithub className="text-zinc-950 dark:text-white" />,
+    icon: <SiGithub className="text-slate-900" />,
   },
   {
     name: 'Slack & Discord',
@@ -81,14 +81,14 @@ const INTEGRATIONS = [
 
 export default function IntegrationsSection() {
   return (
-    <section className="bg-white dark:bg-zinc-950 py-24 md:py-32 border-t border-zinc-100 dark:border-zinc-900">
+    <section className="bg-white py-24 md:py-32 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-semibold md:text-5xl tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
+            <h2 className="text-3xl font-semibold md:text-5xl tracking-tight text-slate-900 leading-tight">
               Powering Your Business with World-Class Technology
             </h2>
-            <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+            <p className="mt-6 text-lg text-slate-600">
               We integrate with the most trusted platforms in the industry to build robust, secure, and future-proof software solutions for your enterprise.
             </p>
           </div>
@@ -109,16 +109,16 @@ export default function IntegrationsSection() {
 
 const IntegrationCard = ({ name, description, icon }: { name: string; description: string; icon: React.ReactNode }) => {
   return (
-    <Card className="group relative overflow-hidden transition-all hover:shadow-md border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 duration-300">
+    <Card className="group relative overflow-hidden transition-all hover:shadow-md hover:border-green-300 border-slate-200 bg-white duration-300">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <div className="bg-zinc-50 dark:bg-zinc-800 p-2.5 rounded-lg border border-zinc-100 dark:border-zinc-700 transition-colors group-hover:bg-zinc-100 dark:group-hover:bg-zinc-750">
+        <div className="bg-green-50 p-2.5 rounded-lg border border-green-100 transition-colors group-hover:bg-green-100">
           <div className="size-6 *:size-full">{icon}</div>
         </div>
-        <ArrowUpRight className="size-4 text-zinc-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight className="size-4 text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </CardHeader>
       <CardContent className="pt-4">
-        <h3 className="font-medium text-zinc-900 dark:text-zinc-50 tracking-tight">{name}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 line-clamp-2">
+        <h3 className="font-medium text-slate-900 tracking-tight">{name}</h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-slate-600 line-clamp-2">
           {description}
         </p>
       </CardContent>
