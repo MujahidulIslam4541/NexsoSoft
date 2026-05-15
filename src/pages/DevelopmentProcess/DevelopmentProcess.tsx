@@ -3,8 +3,9 @@ import {DotLottieReact} from '@lottiefiles/dotlottie-react';
 
 export default function DevelopmentProcess() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24 md:py-32 font-outfit !bg-white overflow-hidden">
-      <div className="text-center space-y-4 max-w-5xl mx-auto">
+    <section className="px-6 py-24 md:py-32 font-outfit !bg-white overflow-hidden">
+<div className='max-w-7xl mx-auto '>
+        <div className="text-center space-y-4 max-w-5xl mx-auto">
         <h2 className="text-balance text-4xl font-semibold md:text-5xl tracking-tight text-zinc-900 font-outfit">
           Our Strategic Development Process
         </h2>
@@ -262,6 +263,7 @@ export default function DevelopmentProcess() {
           </div>
         </div>
       </div>
+</div>
     </section>
   );
 }
