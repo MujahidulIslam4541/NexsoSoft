@@ -33,7 +33,8 @@ const TYPE_COLORS: Record<string, string> = {
 const emptyForm = { name: '', email: '', phone: '', coverLetter: '', portfolioUrl: '' };
 
 export default function JobDetailPage() {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams();
+  const id = params?.id as string;
 
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);

@@ -67,7 +67,7 @@ function Alert({ msg, type, onClose }: { msg: string; type: 'success' | 'error';
 /* ─── Main Component ──────────────────────────────────── */
 function CareersAdminInner() {
   const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as 'jobs' | 'applications') || 'jobs';
+  const initialTab = (searchParams?.get('tab') as 'jobs' | 'applications') || 'jobs';
 
   const [activeTab, setActiveTab] = useState<'jobs' | 'applications'>(initialTab);
 

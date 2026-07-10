@@ -5,7 +5,7 @@ import { jwtVerify } from 'jose';
 const JWT_SECRET = process.env.JWT_SECRET || 'stackmajix_super_secret_key_change_me_in_production';
 const key = new TextEncoder().encode(JWT_SECRET);
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Protect Admin Dashboard UI and sensitive Admin APIs
