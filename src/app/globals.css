@@ -429,9 +429,9 @@ body {
 }
 
 /* Aurora blobs */
-.aurora-1 { animation: aurora-1 12s ease-in-out infinite; }
-.aurora-2 { animation: aurora-2 16s ease-in-out infinite; }
-.aurora-3 { animation: aurora-3 10s ease-in-out infinite; }
+.aurora-1 { animation: aurora-1 12s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
+.aurora-2 { animation: aurora-2 16s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
+.aurora-3 { animation: aurora-3 10s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
 
 /* Hero word-by-word reveal */
 .hero-word {
@@ -478,13 +478,12 @@ body {
   will-change: transform;
 }
 
-/* Animated hero grid */
+/* Hero grid background */
 .hero-grid {
   background-image:
     linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16,185,129,0.06) 1px, transparent 1px);
   background-size: 60px 60px;
-  animation: grid-pan 8s linear infinite;
 }
 
 /* Stat tick */

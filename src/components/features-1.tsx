@@ -1,71 +1,18 @@
 'use client';
 
-import {Code, Server, Sparkles, Cloud, Database, Layout, ArrowRight} from 'lucide-react';
+import {
+  ArrowRight,
+  Layout,
+  Code,
+  Server,
+  Sparkles,
+  Cloud,
+  Database,
+  type LucideIcon,
+} from 'lucide-react';
 import React, {useEffect, useRef} from 'react';
 import Link from 'next/link';
-
-const SERVICES = [
-  {
-    title: 'UI/UX Design',
-    description: 'Designing intuitively beautiful and responsive user interfaces with Tailwind CSS that prioritize user engagement.',
-    icon: Layout,
-    number: '01',
-    featured: true,
-    color: 'from-violet-500/10 to-purple-500/5',
-    iconColor: 'text-violet-600',
-    border: 'group-hover:border-violet-500/30',
-  },
-  {
-    title: 'Modern Web Development',
-    description: 'High-performance, SEO-optimized web applications built with React and Next.js for a seamless user experience.',
-    icon: Code,
-    number: '02',
-    featured: false,
-    color: 'from-sky-500/10 to-blue-500/5',
-    iconColor: 'text-sky-600',
-    border: 'group-hover:border-sky-500/30',
-  },
-  {
-    title: 'Scalable Backend Systems',
-    description: 'Secure and reliable server-side logic using Node.js, NestJS, and Laravel to power your complex business processes.',
-    icon: Server,
-    number: '03',
-    featured: false,
-    color: 'from-emerald-500/10 to-green-500/5',
-    iconColor: 'text-emerald-600',
-    border: 'group-hover:border-emerald-500/30',
-  },
-  {
-    title: 'AI-Driven Applications',
-    description: 'Elevating your business with custom AI integrations, leveraging OpenAI and modern LLMs to automate and innovate.',
-    icon: Sparkles,
-    number: '04',
-    featured: false,
-    color: 'from-amber-500/10 to-orange-500/5',
-    iconColor: 'text-amber-600',
-    border: 'group-hover:border-amber-500/30',
-  },
-  {
-    title: 'Cloud & DevOps',
-    description: 'Optimizing deployments with AWS and Docker for maximum scalability, reliability, and security of your digital infrastructure.',
-    icon: Cloud,
-    number: '05',
-    featured: false,
-    color: 'from-cyan-500/10 to-teal-500/5',
-    iconColor: 'text-cyan-600',
-    border: 'group-hover:border-cyan-500/30',
-  },
-  {
-    title: 'Database Management',
-    description: 'Efficient data modelling and management using Prisma, MongoDB, and MySQL to ensure your data stays organized and secure.',
-    icon: Database,
-    number: '06',
-    featured: false,
-    color: 'from-rose-500/10 to-pink-500/5',
-    iconColor: 'text-rose-600',
-    border: 'group-hover:border-rose-500/30',
-  },
-];
+import {SERVICES, type ServiceItem} from '@/constants/features';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,7 +28,7 @@ function useReveal(threshold = 0.15) {
   return ref;
 }
 
-function ServiceCard({service, delay = 0}: {service: typeof SERVICES[0]; delay?: number}) {
+function ServiceCard({service, delay = 0}: {service: ServiceItem; delay?: number}) {
   const Icon = service.icon;
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -136,8 +83,6 @@ function ServiceCard({service, delay = 0}: {service: typeof SERVICES[0]; delay?:
     </div>
   );
 }
-
-import type { LucideIcon } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
   Layout,
@@ -196,7 +141,7 @@ export default function Features({
       <div className="absolute inset-0 hero-grid opacity-15 pointer-events-none" aria-hidden />
 
       {/* Ambient background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none filter blur-[80px]"
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 rounded-full pointer-events-none filter blur-[80px]"
         style={{background: 'radial-gradient(circle, rgba(16,185,129,0.03) 0%, transparent 70%)'}}
         aria-hidden />
 
@@ -223,7 +168,7 @@ export default function Features({
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {featuresList.map((s, i) => (
-            <ServiceCard key={i} service={s as any} delay={i * 70} />
+            <ServiceCard key={i} service={s} delay={i * 70} />
           ))}
         </div>
 

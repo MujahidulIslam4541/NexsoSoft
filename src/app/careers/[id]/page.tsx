@@ -1,26 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { HeroHeader } from '@/components/header';
 import FooterTwo from '@/components/footer-two';
 import {
   MapPin, Briefcase, DollarSign, Clock, ArrowLeft, Send,
-  CheckCircle2, User, Mail, Phone, FileText, ExternalLink, ChevronDown,
+  CheckCircle2, User, Mail, Phone, ExternalLink,
 } from 'lucide-react';
+import { CAREER_JOBS } from '@/constants/careers';
 
-type Job = {
-  id: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  description: string;
-  requirements: string;
-  salaryRange?: string | null;
-  createdAt: string;
-};
 
 const TYPE_COLORS: Record<string, string> = {
   'Full-time':  'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30',
@@ -36,28 +26,14 @@ export default function JobDetailPage() {
   const params = useParams();
   const id = params?.id as string;
 
-  const [job, setJob] = useState<Job | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
+  const job = CAREER_JOBS.find((j) => j.id === id) || null;
+  const notFound = !job;
 
   const [form, setForm] = useState(emptyForm);
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    async function loadJob() {
-      try {
-        const res = await fetch(`/api/careers/${id}`);
-        if (res.status === 404) { setNotFound(true); return; }
-        const data = await res.json();
-        if (data.success) setJob(data.data);
-      } catch { setNotFound(true); }
-      finally { setLoading(false); }
-    }
-    if (id) loadJob();
-  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,53 +44,13 @@ export default function JobDetailPage() {
     setSubmitting(true);
     setError('');
 
-    try {
-      // 1. Upload CV file
-      const formData = new FormData();
-      formData.append('file', cvFile);
-      
-      const uploadRes = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-      
-      const uploadData = await uploadRes.json();
-      
-      if (!uploadRes.ok) {
-        setError(uploadData.error || 'Failed to upload CV. Please try again.');
-        setSubmitting(false);
-        return;
-      }
-
-      // 2. Submit application with cvUrl
-      const res = await fetch('/api/careers/apply', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ jobId: id, cvUrl: uploadData.url, ...form }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.error || 'Something went wrong. Please try again.');
-        return;
-      }
-
+    // Simulate fast local submission
+    setTimeout(() => {
       setSubmitted(true);
-    } catch {
-      setError('Failed to submit your application. Please check your connection.');
-    } finally {
       setSubmitting(false);
-    }
+    }, 600);
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950">
-        <div className="size-10 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-      </div>
-    );
-  }
 
   if (notFound || !job) {
     return (

@@ -6,13 +6,9 @@ import React from 'react';
 import {useScroll, motion} from 'motion/react';
 import {cn} from '@/lib/utils';
 
-const menuItems = [
-  {name: 'Features', href: '/#features'},
-  {name: 'Solution', href: '/#solution'},
-  {name: 'Stats', href: '/#stats'},
-  {name: 'About', href: '/#about'},
-  {name: 'Careers', href: '/careers'},
-];
+import {NAV_MENU_ITEMS} from '@/constants/navigation';
+
+const menuItems = NAV_MENU_ITEMS;
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);

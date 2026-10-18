@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useEffect, useRef, useState} from 'react';
+import { STATS_ITEMS, MAP_NODES, NETWORK_CONNECTIONS, type MapNode } from '@/constants/stats';
 
 function useCountUp(target: number, duration = 1800) {
   const [count, setCount] = useState(0);
@@ -112,26 +113,7 @@ function AnimatedTitle({text}: {text: string}) {
   );
 }
 
-interface MapNode {
-  id: string;
-  name: string;
-  x: number;
-  y: number;
-  latency: string;
-  flow: string;
-  nodes: string;
-}
-
-const mapNodes: MapNode[] = [
-  { id: 'sv', name: 'Silicon Valley', x: 100, y: 100, latency: '5ms', flow: '2.4 TB/s', nodes: '3.8M Active' },
-  { id: 'ny', name: 'New York', x: 165, y: 90, latency: '8ms', flow: '1.9 TB/s', nodes: '2.1M Active' },
-  { id: 'sp', name: 'Sao Paulo', x: 210, y: 220, latency: '22ms', flow: '0.8 TB/s', nodes: '1.2M Active' },
-  { id: 'ld', name: 'London', x: 325, y: 65, latency: '11ms', flow: '1.7 TB/s', nodes: '2.5M Active' },
-  { id: 'fr', name: 'Frankfurt', x: 350, y: 70, latency: '12ms', flow: '1.6 TB/s', nodes: '2.2M Active' },
-  { id: 'sg', name: 'Singapore', x: 525, y: 195, latency: '15ms', flow: '1.1 TB/s', nodes: '1.8M Active' },
-  { id: 'tk', name: 'Tokyo', x: 590, y: 95, latency: '19ms', flow: '1.5 TB/s', nodes: '2.4M Active' },
-  { id: 'sd', name: 'Sydney', x: 615, y: 245, latency: '26ms', flow: '0.6 TB/s', nodes: '0.9M Active' },
-];
+const mapNodes = MAP_NODES;
 
 const CONTINENT_PATHS = {
   af: [
@@ -215,20 +197,7 @@ const CONTINENT_PATHS = {
   ]
 };
 
-const networkConnections = [
-  { from: 'sv', to: 'ny' },
-  { from: 'ny', to: 'ld' },
-  { from: 'ld', to: 'fr' },
-  { from: 'fr', to: 'tk' },
-  { from: 'tk', to: 'sd' },
-  { from: 'sd', to: 'sg' },
-  { from: 'sg', to: 'sp' },
-  { from: 'sp', to: 'sv' },
-  { from: 'ny', to: 'sp' },
-  { from: 'ld', to: 'sp' },
-  { from: 'fr', to: 'sg' },
-  { from: 'tk', to: 'sg' },
-];
+const networkConnections = NETWORK_CONNECTIONS;
 
 function getCurvePath(x1: number, y1: number, x2: number, y2: number) {
   const cx = (x1 + x2) / 2;
@@ -237,12 +206,23 @@ function getCurvePath(x1: number, y1: number, x2: number, y2: number) {
 }
 
 interface WorldMapProps {
-  activeNode: MapNode | null;
   setActiveNode: (node: MapNode | null) => void;
 }
 
-function InteractiveWorldMap({ activeNode, setActiveNode }: WorldMapProps) {
+function InteractiveWorldMap({ setActiveNode }: WorldMapProps) {
   const [hoveredNode, setHoveredNode] = useState<MapNode | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    }, { threshold: 0.1 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleMouseEnter = (node: MapNode) => {
     setHoveredNode(node);
@@ -255,7 +235,7 @@ function InteractiveWorldMap({ activeNode, setActiveNode }: WorldMapProps) {
   };
 
   return (
-    <div className="w-full relative flex justify-center items-center h-[520px] overflow-hidden mt-6">
+    <div ref={containerRef} className="w-full relative flex justify-center items-center h-[520px] overflow-hidden mt-6">
       {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-70 pointer-events-none" />
 
@@ -308,13 +288,15 @@ function InteractiveWorldMap({ activeNode, setActiveNode }: WorldMapProps) {
                     className="animate-dash-flow pointer-events-none"
                   />
                   {/* Light packets animated along paths */}
-                  <circle r={isActive ? 2.5 : 1.75} fill="#10b981" className="filter drop-shadow-[0_0_3px_#10b981]">
-                    <animateMotion
-                      dur={`${3 + (idx % 3) * 1.5}s`}
-                      repeatCount="indefinite"
-                      path={pathString}
-                    />
-                  </circle>
+                  {isVisible && (
+                    <circle r={isActive ? 2.5 : 1.75} fill="#10b981" className="filter drop-shadow-[0_0_3px_#10b981]">
+                      <animateMotion
+                        dur={`${3 + (idx % 3) * 1.5}s`}
+                        repeatCount="indefinite"
+                        path={pathString}
+                      />
+                    </circle>
+                  )}
                 </g>
               );
             })}
@@ -335,15 +317,17 @@ function InteractiveWorldMap({ activeNode, setActiveNode }: WorldMapProps) {
                   <circle cx={node.x} cy={node.y} r={16} fill="transparent" />
 
                   {/* Pulsing ring animation */}
-                  <circle
-                    cx={node.x}
-                    cy={node.y}
-                    r={isHovered ? 12 : 7}
-                    fill="none"
-                    stroke="rgba(16, 185, 129, 0.4)"
-                    strokeWidth={1.5}
-                    className="animate-ping"
-                  />
+                  {isVisible && (
+                    <circle
+                      cx={node.x}
+                      cy={node.y}
+                      r={isHovered ? 12 : 7}
+                      fill="none"
+                      stroke="rgba(16, 185, 129, 0.4)"
+                      strokeWidth={1.5}
+                      className="animate-ping"
+                    />
+                  )}
 
                   {/* Outer glow ring */}
                   <circle
@@ -416,11 +400,7 @@ export default function Stats({
     return () => obs.disconnect();
   }, []);
 
-  const defaultStats = [
-    { value: 50, suffix: '+', label: 'Projects completed and delivered.', isText: false, delay: 0 },
-    { value: 15, suffix: '+', label: 'Happy clients from around the world.', isText: false, delay: 120 },
-    { value: 'Top Rated', label: 'Trusted by our partners daily.', isText: true, delay: 240 },
-  ];
+  const defaultStats = STATS_ITEMS;
 
   const statsList = initialStats
     ? initialStats.map((s, idx) => {
@@ -511,7 +491,7 @@ export default function Stats({
         </div>
 
         {/* Globe replaced by InteractiveWorldMap component */}
-        <InteractiveWorldMap activeNode={activeNode} setActiveNode={setActiveNode} />
+        <InteractiveWorldMap setActiveNode={setActiveNode} />
       </div>
 
     </section>

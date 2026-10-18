@@ -69,7 +69,7 @@ export default function ProcessSection() {
                     </Card>
                     <Card
                         variant="mixed"
-                        className="row-span-2 grid grid-rows-subgrid overflow-hidden border-green-300 !bg-white transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
+                        className="row-span-2 grid grid-rows-subgrid overflow-hidden border-green-300 bg-white! transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <Layout className="size-5 text-green-600" />
@@ -91,7 +91,7 @@ export default function ProcessSection() {
                     </Card>
                     <Card
                         variant="mixed"
-                        className="row-span-2 grid grid-rows-subgrid overflow-hidden border-green-300 !bg-white transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
+                        className="row-span-2 grid grid-rows-subgrid overflow-hidden border-green-300 bg-white! transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <Code2 className="size-5 text-green-600" />
@@ -140,7 +140,7 @@ export default function ProcessSection() {
                     </Card>
                     <Card
                         variant="mixed"
-                        className="row-span-2 grid grid-rows-subgrid border-green-300 !bg-white transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
+                        className="row-span-2 grid grid-rows-subgrid border-green-300 bg-white! transition-all duration-300 hover:border-green-500 hover:shadow-lg hover:shadow-green-200/30">
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <Rocket className="size-5 text-green-600" />

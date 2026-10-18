@@ -3,9 +3,7 @@ import {
   SiAnthropic,
   SiDocker,
   SiStripe,
-  SiPaypal,
   SiSupabase,
-  SiPrisma,
   SiGithub,
   SiSlack,
   SiCloudflare,
@@ -14,7 +12,6 @@ import { FaAws } from 'react-icons/fa';
 import { Smartphone, Wallet, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 
 const INTEGRATIONS = [
   {

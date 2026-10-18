@@ -3,19 +3,18 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import {Mail, Phone, MapPin} from 'lucide-react';
+import {CONTACT_DETAILS} from '@/constants/contact';
 
 /* ─── Floating Label Input ──────────────────────────────────── */
 function FloatingInput({
   id,
   label,
   type = 'text',
-  placeholder,
   required,
 }: {
   id: string;
   label: string;
   type?: string;
-  placeholder?: string;
   required?: boolean;
 }) {
   return (
@@ -166,8 +165,9 @@ export default function Contact() {
 
       setSuccess(true);
       e.currentTarget.reset();
-    } catch (err: any) {
-      setError(err.message || 'Failed to send message. Please try again.');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to send message. Please try again.';
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -210,23 +210,18 @@ export default function Contact() {
         <div className="grid gap-12 lg:grid-cols-5 mt-16">
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-4">
-            <ContactPill
-              icon={Mail}
-              title="Email Us"
-              value="stackmajix@gmail.com"
-              href="mailto:stackmajix@gmail.com"
-            />
-            <ContactPill
-              icon={Phone}
-              title="Call Us"
-              value="01307164307"
-              href="tel:01307164307"
-            />
-            <ContactPill
-              icon={MapPin}
-              title="Availability"
-              value="Global Distributed Team (Remote First)"
-            />
+            {CONTACT_DETAILS.map((c, i) => {
+              const iconMap = { email: Mail, phone: Phone, location: MapPin };
+              return (
+                <ContactPill
+                  key={i}
+                  icon={iconMap[c.type]}
+                  title={c.title}
+                  value={c.value}
+                  href={c.href}
+                />
+              );
+            })}
           </div>
 
           {/* Contact Form */}

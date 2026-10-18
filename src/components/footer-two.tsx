@@ -1,34 +1,9 @@
 import { Logo } from '@/components/logo';
 import Link from 'next/link';
 
-const links = [
-  {
-    group: 'Services',
-    items: [
-      { title: 'Web Development', href: '#features' },
-      { title: 'Mobile Applications', href: '#features' },
-      { title: 'Cloud Solutions', href: '#features' },
-      { title: 'System Architecture', href: '#solution' },
-    ],
-  },
-  {
-    group: 'Company',
-    items: [
-      { title: 'Our Features', href: '#features' },
-      { title: 'Development Process', href: '#solution' },
-      { title: 'Success Stories', href: '#stats' },
-      { title: 'About Us', href: '#about' },
-    ],
-  },
-  {
-    group: 'Legal',
-    items: [
-      { title: 'Privacy Policy', href: '/privacy-policy' },
-      { title: 'Terms of Service', href: '/terms-of-service' },
-      { title: 'Cookie Policy', href: '/cookie-policy' },
-    ],
-  },
-];
+import {FOOTER_LINKS} from '@/constants/navigation';
+
+const links = FOOTER_LINKS;
 
 export default function FooterSection() {
   return (
@@ -36,12 +11,12 @@ export default function FooterSection() {
       {/* Ghost watermark */}
       <div
         aria-hidden
-        className="pointer-events-none select-none absolute bottom-0 translate-y-[2.2vw] left-0 right-0 text-[12vw] font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-t from-emerald-500/25 via-emerald-500/5 to-transparent dark:from-emerald-400/35 dark:via-emerald-400/8 dark:to-transparent leading-none whitespace-nowrap text-center scale-y-[2.2] origin-bottom select-none">
-        StackMaJIx
+        className="pointer-events-none select-none absolute bottom-0 translate-y-[2.2vw] left-0 right-0 text-[12vw] font-black tracking-widest uppercase text-transparent bg-clip-text bg-linear-to-t from-emerald-500/25 via-emerald-500/5 to-transparent dark:from-emerald-400/35 dark:via-emerald-400/8 dark:to-transparent leading-none whitespace-nowrap text-center scale-y-[2.2] origin-bottom">
+        NexsoSoft
       </div>
 
       {/* Top gradient divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary to-transparent opacity-60" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-5">

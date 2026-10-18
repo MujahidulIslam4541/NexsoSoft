@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { prisma } from '@/lib/db';
+import { CAREER_JOBS } from '@/constants/careers';
 import { MapPin, Briefcase, Clock, DollarSign, ArrowRight, Users, Zap } from 'lucide-react';
 import { HeroHeader } from '@/components/header';
 import FooterTwo from '@/components/footer-two';
@@ -17,12 +17,8 @@ const TYPE_COLORS: Record<string, string> = {
   'Contract':   'bg-rose-500/10 text-rose-500 border-rose-500/30',
 };
 
-export default async function CareersPage() {
-  const jobs = await prisma.careerJob.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: 'desc' },
-    include: { _count: { select: { applications: true } } },
-  }).catch(() => []);
+export default function CareersPage() {
+  const jobs = CAREER_JOBS;
 
   const departments = [...new Set(jobs.map(j => j.department))];
 
@@ -130,7 +126,7 @@ export default async function CareersPage() {
                             )}
                             <span className="flex items-center gap-1.5">
                               <Users className="size-4 text-slate-400" />
-                              {job._count.applications} applied
+                              {job._count?.applications ?? job.applicationsCount ?? 0} applied
                             </span>
                             <span className="flex items-center gap-1.5">
                               <Clock className="size-4 text-slate-400" />
