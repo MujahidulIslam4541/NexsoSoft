@@ -4,6 +4,7 @@ import {Logo} from '@/components/logo';
 import {Menu, X, Sun, Moon} from 'lucide-react';
 import React from 'react';
 import {useScroll, motion} from 'motion/react';
+import {useLenis} from 'lenis/react';
 import {cn} from '@/lib/utils';
 
 import {NAV_MENU_ITEMS} from '@/constants/navigation';
@@ -15,6 +16,7 @@ export const HeroHeader = () => {
   const [scrolled, setScrolled] = React.useState(false);
   const {scrollYProgress} = useScroll();
   const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
+  const lenis = useLenis();
 
   React.useEffect(() => {
     const isDark = document.documentElement.classList.contains('dark');
@@ -39,6 +41,41 @@ export const HeroHeader = () => {
     });
     return () => unsubscribe();
   }, [scrollYProgress]);
+
+  // Lock scroll and pause Lenis when mobile menu is open
+  React.useEffect(() => {
+    if (menuState) {
+      document.body.style.overflow = 'hidden';
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = '';
+      lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = '';
+      lenis?.start();
+    };
+  }, [menuState, lenis]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMenuState(false);
+    if (lenis) {
+      lenis.start();
+      const isHomepage = window.location.pathname === '/';
+      const isAnchor = href.startsWith('#') || (isHomepage && href.startsWith('/#'));
+      if (isAnchor) {
+        const hash = href.startsWith('/#') ? href.slice(1) : href;
+        if (hash && hash !== '#') {
+          const target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.6 });
+            window.history.pushState(null, '', hash);
+          }
+        }
+      }
+    }
+  };
 
   return (
     <header>
@@ -76,6 +113,7 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className="relative text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 text-base group py-1">
                       {item.name}
                       {/* Animated underline */}
@@ -98,6 +136,7 @@ export const HeroHeader = () => {
               <Link
                 href="/#contact"
                 id="nav-cta-btn"
+                onClick={(e) => handleNavClick(e, '/#contact')}
                 className="relative inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white rounded-full overflow-hidden
                   bg-primary
                   border border-primary
@@ -151,13 +190,14 @@ export const HeroHeader = () => {
             animate={
               menuState ? {height: 'auto', opacity: 1} : {height: 0, opacity: 0}
             }
+            data-lenis-prevent
             className="lg:hidden overflow-hidden">
             <ul className="space-y-3 pb-6 pt-2">
               {menuItems.map((item, index) => (
                 <li key={index} className="px-4">
                   <Link
                     href={item.href}
-                    onClick={() => setMenuState(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary block py-2.5 border-b border-slate-100 dark:border-slate-800/60 last:border-none transition-colors duration-200">
                     {item.name}
                   </Link>
@@ -166,7 +206,7 @@ export const HeroHeader = () => {
               <li className="px-4 pt-4">
                 <Link
                   href="/#contact"
-                  onClick={() => setMenuState(false)}
+                  onClick={(e) => handleNavClick(e, '/#contact')}
                   className="block w-full text-center bg-primary text-white rounded-full py-2.5 text-base font-semibold hover:bg-secondary transition-colors">
                   Contact Us
                 </Link>

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -39,8 +40,6 @@
   }
 }
 
-
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -48,30 +47,15 @@ body {
 }
 
 /* ========================================
-   KEYFRAME ANIMATIONS
-   All wrapped in prefers-reduced-motion
+   KEYFRAMES
    ======================================== */
 
 @media (prefers-reduced-motion: no-preference) {
-
-  /* Shimmer text gradient animation for hero headline */
-  @keyframes shimmer-text {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-
-  /* Floating / levitate animation for tech badge pills */
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-6px); }
   }
 
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-  }
-
-  /* Pulsing ring for ecosystem center logo */
   @keyframes pulse-ring {
     0% {
       box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4),
@@ -87,86 +71,47 @@ body {
     }
   }
 
-  /* Bouncing scroll indicator arrow */
-  @keyframes bounce-arrow {
-    0%, 100% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(8px); opacity: 0.6; }
-  }
-
-  /* Shine sweep for CTA send button */
   @keyframes shine-sweep {
     0% { left: -75%; }
     100% { left: 125%; }
   }
 
-  /* Scroll-reveal fade-up */
   @keyframes reveal-up {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Rotating gradient border animation */
   @keyframes border-rotate {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
-  /* Count-up pulse for stats */
-  @keyframes stat-pop {
-    0% { transform: scale(0.8); opacity: 0; }
-    60% { transform: scale(1.05); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  /* Dot grid pulse for footer/bg */
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.7; }
-  }
-
-  /* Fade-in for toasts/alerts */
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(-8px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
+
+  @keyframes aurora-1 {
+    0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.55; }
+    33%      { transform: translate(8%, -12%) scale(1.2); opacity: 0.75; }
+    66%      { transform: translate(-6%, 8%) scale(0.9); opacity: 0.4; }
+  }
+  @keyframes aurora-2 {
+    0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.4; }
+    33%      { transform: translate(-10%, 10%) scale(1.2); opacity: 0.6; }
+    66%      { transform: translate(12%, -8%) scale(0.85); opacity: 0.5; }
+  }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -40; }
 }
 
 /* ========================================
-   UTILITY CLASSES
+   UTILITIES
    ======================================== */
 
-/* Shimmer headline text */
-.shimmer-text {
-  background: linear-gradient(
-    90deg,
-    var(--foreground) 0%,
-    var(--foreground) 30%,
-    var(--accent) 45%,
-    var(--primary) 50%,
-    var(--accent) 55%,
-    var(--foreground) 70%,
-    var(--foreground) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .shimmer-text {
-    animation: shimmer-text 4s linear infinite;
-  }
-}
-
-/* Floating animation */
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -175,22 +120,20 @@ body {
   animation: float 3s ease-in-out 1s infinite;
 }
 
-/* Fade-in for alerts and toasts */
 .animate-fade-in {
   animation: fade-in 0.25s ease-out both;
 }
 
-/* Pulse ring for center logo */
 .animate-pulse-ring {
   animation: pulse-ring 2s ease-out infinite;
 }
 
-/* Bouncing scroll arrow */
-.animate-bounce-arrow {
-  animation: bounce-arrow 1.5s ease-in-out infinite;
+.animate-dash-flow {
+  stroke-dasharray: 8, 12;
+  animation: dash-flow 2s linear infinite;
 }
 
-/* Shine sweep utility (button) */
+/* Shine sweep (CTA button) */
 .shine-btn {
   position: relative;
   overflow: hidden;
@@ -203,12 +146,7 @@ body {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: skewX(-15deg);
   pointer-events: none;
 }
@@ -219,7 +157,7 @@ body {
   }
 }
 
-/* Scroll reveal — initial hidden state */
+/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -236,21 +174,7 @@ body {
   transform: translateY(0);
 }
 
-/* Staggered reveal delays */
-.reveal-delay-1 { animation-delay: 0.1s; }
-.reveal-delay-2 { animation-delay: 0.2s; }
-.reveal-delay-3 { animation-delay: 0.3s; }
-.reveal-delay-4 { animation-delay: 0.4s; }
-
-/* Glass card utility */
-.glass-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Gradient border card (bento services) */
+/* Gradient border card */
 .gradient-border-card {
   position: relative;
   border-radius: 1rem;
@@ -288,28 +212,18 @@ body {
   opacity: 1;
 }
 
-/* Dot grid background pattern */
+/* Backgrounds */
 .dot-grid-bg {
   background-image: radial-gradient(circle, rgba(16, 185, 129, 0.15) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Stat number pop animation */
-.stat-pop {
-  opacity: 0;
+.footer-dot-grid {
+  background-image: radial-gradient(circle, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .stat-pop.animated {
-    animation: stat-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-}
-
-.stat-pop.animated {
-  opacity: 1;
-}
-
-/* Floating label input wrapper */
+/* Floating label input (contact form) */
 .floating-label-group {
   position: relative;
 }
@@ -341,144 +255,13 @@ body {
   font-size: 0.75rem;
 }
 
-/* Footer dot grid */
-.footer-dot-grid {
-  background-image: radial-gradient(circle, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
+/* ========================================
+   HERO
+   ======================================== */
 
-/* Hide scrollbar (for carousel) */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* =====================================================
-   HERO SECTION — CUSTOM DESIGN ANIMATIONS & UTILITIES
-   ===================================================== */
-
-/* Aurora ambient blobs */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes aurora-1 {
-    0%, 100% { transform: translate(0%, 0%) scale(1);    opacity: 0.55; }
-    33%       { transform: translate(8%, -12%) scale(1.2); opacity: 0.75; }
-    66%       { transform: translate(-6%, 8%) scale(0.9);  opacity: 0.4; }
-  }
-  @keyframes aurora-2 {
-    0%, 100% { transform: translate(0%, 0%) scale(1);     opacity: 0.4; }
-    33%       { transform: translate(-10%, 10%) scale(1.2); opacity: 0.6; }
-    66%       { transform: translate(12%, -8%) scale(0.85); opacity: 0.5; }
-  }
-  @keyframes aurora-3 {
-    0%, 100% { transform: translate(0%,  0%) scale(1);  opacity: 0.3; }
-    50%       { transform: translate(5%, 5%) scale(1.1); opacity: 0.5; }
-  }
-
-  /* Hero headline word reveal */
-  @keyframes word-reveal {
-    from { opacity: 0; transform: translateY(50px); filter: blur(6px); }
-    to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
-  }
-
-  /* Slide in from left */
-  @keyframes fade-slide-left {
-    from { opacity: 0; transform: translateX(-30px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  /* Subtle fade up */
-  @keyframes fade-up-sm {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Badge entrance */
-  @keyframes badge-float {
-    from { opacity: 0; transform: translateY(16px) scale(0.9); }
-    to   { opacity: 1; transform: translateY(0)    scale(1);   }
-  }
-
-  /* Cursor blink */
-  @keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-
-  /* Glow orb ambient drift */
-  @keyframes glow-drift {
-    0%, 100% { transform: translate(0,    0)   scale(1);    }
-    25%       { transform: translate(50px, -40px) scale(1.1); }
-    50%       { transform: translate(-30px, 50px) scale(0.95);}
-    75%       { transform: translate(40px,  30px) scale(1.05);}
-  }
-
-  /* Moving hero grid */
-  @keyframes grid-pan {
-    from { background-position: 0px 0px;    }
-    to   { background-position: 60px 60px;  }
-  }
-
-  /* Stat tick in */
-  @keyframes tick-in {
-    from { opacity: 0; transform: scale(0.6) rotate(-10deg); }
-    to   { opacity: 1; transform: scale(1)   rotate(0deg);   }
-  }
-}
-
-/* Aurora blobs */
 .aurora-1 { animation: aurora-1 12s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
 .aurora-2 { animation: aurora-2 16s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
-.aurora-3 { animation: aurora-3 10s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
 
-/* Hero word-by-word reveal */
-.hero-word {
-  opacity: 0;
-  display: inline-block;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-word.revealed {
-    animation: word-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-}
-.hero-word.revealed { opacity: 1; }
-
-/* Hero subtext */
-.hero-sub {
-  opacity: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-sub.revealed {
-    animation: fade-up-sm 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-}
-.hero-sub.revealed { opacity: 1; }
-
-/* Hero badge entrance */
-.hero-badge {
-  opacity: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-badge.revealed {
-    animation: badge-float 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-}
-.hero-badge.revealed { opacity: 1; }
-
-/* Cursor blink */
-.cursor-blink {
-  animation: cursor-blink 1s step-start infinite;
-}
-
-/* Glow orb */
-.glow-orb {
-  animation: glow-drift 18s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Hero grid background */
 .hero-grid {
   background-image:
     linear-gradient(rgba(16,185,129,0.06) 1px, transparent 1px),
@@ -486,23 +269,12 @@ body {
   background-size: 60px 60px;
 }
 
-/* Stat tick */
-.stat-tick {
-  opacity: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .stat-tick.revealed {
-    animation: tick-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-}
-.stat-tick.revealed { opacity: 1; }
-
-/* Hero CTA gradient button */
 .hero-cta-gradient {
   background: linear-gradient(135deg, #10b981 0%, #059669 60%, #34d399 100%);
   background-size: 200% 200%;
   transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .hero-cta-gradient:hover {
     background-position: right center;
@@ -510,84 +282,11 @@ body {
   }
 }
 
-/* Ghost outline button */
-.hero-cta-ghost {
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-}
-.hero-cta-ghost:hover {
-  border-color: rgba(16,185,129,0.5);
-  background: rgba(16,185,129,0.1);
-}
+/* ========================================
+   OTHER SECTIONS
+   ======================================== */
 
-/* Tech pill dark variant */
-.tech-pill-dark {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-.tech-pill-dark:hover {
-  background: rgba(16,185,129,0.12);
-  border-color: rgba(16,185,129,0.35);
-  box-shadow: 0 0 14px rgba(16,185,129,0.2);
-}
-
-/* Premium additions */
-@keyframes watermark-pulse {
-  0%, 100% {
-    transform: translate(-50%, 0) scale(1) translateY(0);
-    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.05));
-    opacity: 0.03;
-  }
-  50% {
-    transform: translate(-50%, 0) scale(1.03) translateY(-6px);
-    filter: drop-shadow(0 0 25px rgba(52, 211, 153, 0.15));
-    opacity: 0.095;
-  }
-}
-
-.animate-watermark-pulse {
-  animation: watermark-pulse 8s ease-in-out infinite;
-}
-
-@keyframes gradient-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient-flow {
-  background-size: 200% 200%;
-  animation: gradient-flow 6s ease infinite;
-}
-
-/* Card hover glow shadow */
-.hover-glow-card {
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.hover-glow-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-/* Shifting gradient background for step cards */
-.step-glow-bg {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.06) 0%, transparent 60%);
-  pointer-events: none;
-}
-.step-card:hover .step-glow-bg {
-  opacity: 1;
-}
-
-/* Premium 3D Tilt Card */
+/* Tilt card */
 .tilt-card-3d {
   perspective: 1200px;
   transform-style: preserve-3d;
@@ -598,14 +297,12 @@ body {
   box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.15), 0 0 50px -10px rgba(52, 211, 153, 0.1);
   border-color: rgba(16, 185, 129, 0.35) !important;
 }
-
-/* For inner components of tilt card to have depth */
 .tilt-card-3d-child {
   transform: translateZ(35px);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Translucent Premium HUD Glass Panels */
+/* HUD glass panels */
 .hud-glass {
   background: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(14px) saturate(180%) !important;
@@ -626,19 +323,7 @@ body {
   transform: scale(1.02);
 }
 
-/* SVG Line Dash Flow Animation */
-@keyframes dash-flow {
-  to {
-    stroke-dashoffset: -40;
-  }
-}
-
-.animate-dash-flow {
-  stroke-dasharray: 8, 12;
-  animation: dash-flow 2s linear infinite;
-}
-
-/* Custom stats section animations */
+/* Stats section */
 .title-word {
   display: inline-block;
   opacity: 0;
@@ -661,14 +346,4 @@ body {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
-}
-
-/* Custom 3D Tilt for Map (no borders or shadows on hover) */
-.map-tilt-3d {
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.map-tilt-3d:hover {
-  transform: rotateX(4deg) rotateY(-4deg) translateY(-4px);
 }

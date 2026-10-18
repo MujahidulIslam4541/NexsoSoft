@@ -10,7 +10,6 @@ import {
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 import { Smartphone, Wallet, ShieldCheck, ArrowUpRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const INTEGRATIONS = [
@@ -89,9 +88,9 @@ export default function IntegrationsSection() {
               We integrate with the most trusted platforms in the industry to build robust, secure, and future-proof software solutions for your enterprise.
             </p>
           </div>
-          <Button variant="outline" size="lg" className="rounded-full shadow-sm hover:scale-105 transition-transform duration-200">
+          <button  className="rounded-full shadow-sm hover:scale-105 transition-transform duration-200">
             Explore All Integrations
-          </Button>
+          </button>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

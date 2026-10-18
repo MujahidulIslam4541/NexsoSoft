@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
 // Font variables for system sans and mono
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}>
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <head>
         <Script
           id="theme-script"
@@ -46,7 +47,7 @@ export default function RootLayout({
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
