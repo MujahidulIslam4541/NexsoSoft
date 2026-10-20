@@ -14,14 +14,14 @@ export const CONTACT_HEADER = {
 export const CONTACT_DETAILS: ContactDetail[] = [
   {
     title: 'Email Us',
-    value: 'stackmajix@gmail.com',
-    href: 'mailto:stackmajix@gmail.com',
+    value: 'info@nexsosoft.com',
+    href: 'mailto:info@nexsosoft.com',
     type: 'email',
   },
   {
     title: 'Call Us',
-    value: '01307164307',
-    href: 'tel:01307164307',
+    value: '+880 01307164307',
+    href: 'tel:+880 01307164307',
     type: 'phone',
   },
   {

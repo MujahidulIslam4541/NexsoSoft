@@ -51,10 +51,10 @@ function ServiceCard({service, delay = 0}: {service: ServiceItem; delay?: number
         ${service.border}`}>
 
       {/* Gradient top-right corner blob */}
-      <div className={`absolute -top-16 -right-16 size-52 rounded-full bg-gradient-to-br ${service.color} blur-3xl opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none`} />
+      <div className={`absolute -top-16 -right-16 size-52 rounded-full bg-linear-to-br ${service.color} blur-3xl opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none`} />
 
       {/* Gradient bottom-left corner blob */}
-      <div className="absolute -bottom-16 -left-16 size-36 rounded-full bg-gradient-to-tr from-emerald-500/5 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      <div className="absolute -bottom-16 -left-16 size-36 rounded-full bg-linear-to-tr from-emerald-500/5 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
       {/* Number */}
       <span className="text-[11px] tracking-[0.3em] font-bold text-slate-355 dark:text-slate-500 uppercase tilt-card-3d-child">{service.number}</span>

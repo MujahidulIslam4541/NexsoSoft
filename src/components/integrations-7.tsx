@@ -37,12 +37,12 @@ export default function IntegrationsSection() {
   return (
     <section className="relative bg-white dark:bg-slate-950 overflow-hidden py-12 md:py-20 transition-colors duration-300">
       {/* Top & bottom border glows */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
 
       {/* Subtle radial glow center */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 rounded-full pointer-events-none"
         style={{background: 'radial-gradient(ellipse, rgba(16,185,129,0.04) 0%, transparent 70%)'}}
         aria-hidden
       />
