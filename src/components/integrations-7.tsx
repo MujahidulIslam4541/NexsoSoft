@@ -36,6 +36,23 @@ const TECH_ROW_3 = [
 export default function IntegrationsSection() {
   return (
     <section className="relative bg-white dark:bg-slate-950 overflow-hidden py-12 md:py-20 transition-colors duration-300">
+
+        {/* Text */}
+        <div className="mt-6 text-center space-y-4 pb-14">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+            Seamlessly Integrated{' '}
+            <span className="text-transparent bg-clip-text" style={{backgroundImage: 'linear-gradient(135deg,#34d399,#10b981)'}}>
+              Ecosystem
+            </span>
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
+            We build and deploy using an industry-leading technical stack,
+            ensuring your software is scalable, secure, and ready for the global market.
+          </p>
+        </div>
+        
+
+
       {/* Top & bottom border glows */}
       <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
@@ -92,20 +109,6 @@ export default function IntegrationsSection() {
               </IntegCard>
             </div>
           </div>
-        </div>
-
-        {/* Text */}
-        <div className="mt-12 text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-            Seamlessly Integrated{' '}
-            <span className="text-transparent bg-clip-text" style={{backgroundImage: 'linear-gradient(135deg,#34d399,#10b981)'}}>
-              Ecosystem
-            </span>
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
-            We build and deploy using an industry-leading technical stack,
-            ensuring your software is scalable, secure, and ready for the global market.
-          </p>
         </div>
       </div>
     </section>
