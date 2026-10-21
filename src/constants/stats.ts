@@ -14,7 +14,7 @@ export const STATS_HEADER = {
 };
 
 export const STATS_ITEMS: StatItem[] = [
-  { value: 50, suffix: '+', label: 'Projects completed and delivered.', isText: false, delay: 0 },
+  { value: 30, suffix: '+', label: 'Projects completed and delivered.', isText: false, delay: 0 },
   { value: 15, suffix: '+', label: 'Happy clients from around the world.', isText: false, delay: 120 },
   { value: 'Top Rated', label: 'Trusted by our partners daily.', isText: true, delay: 240 },
 ];

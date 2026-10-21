@@ -115,7 +115,7 @@ function ContactPill({
 }
 
 /* ─── Main Component ────────────────────────────────────────── */
-export default function Contact() {
+export default function ContactSection() {
   const headerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -274,3 +274,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export const Contact = ContactSection;

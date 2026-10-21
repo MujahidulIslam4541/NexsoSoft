@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import {Logo} from '@/components/logo';
+import {Logo} from '@/components/common/Logo';
 import {Menu, X, Sun, Moon} from 'lucide-react';
 import React from 'react';
 import {useScroll, motion} from 'motion/react';
@@ -218,3 +218,6 @@ export const HeroHeader = () => {
     </header>
   );
 };
+
+export const Header = HeroHeader;
+export default Header;

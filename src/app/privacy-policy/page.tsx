@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { HeroHeader } from '@/components/header';
+import { Header } from '@/components/layout/Header';
 import { Shield, Lock, Eye, FileText, CheckCircle } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
     <div className="relative min-h-screen font-outfit bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300">
       {/* Navigation */}
-      <HeroHeader />
+      <Header />
 
       {/* Decorative Background Elements */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">

@@ -7,7 +7,7 @@ import { Slack } from '@/components/ui/svgs/slack'
 import { Firebase } from '@/components/ui/svgs/firebase'
 import { ClerkIconDark as Clerk } from '@/components/ui/svgs/clerk'
 
-export default function ProcessSection() {
+export default function StrategicProcessSection() {
     return (
         <section className="bg-white @container py-24 md:py-32 border-t border-slate-200">
             <div className="mx-auto max-w-4xl px-6">
@@ -161,3 +161,5 @@ export default function ProcessSection() {
         </section>
     )
 }
+
+export const ProcessSection = StrategicProcessSection;

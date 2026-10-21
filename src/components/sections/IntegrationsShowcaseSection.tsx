@@ -75,7 +75,7 @@ const INTEGRATIONS = [
   },
 ];
 
-export default function IntegrationsSection() {
+export default function IntegrationsShowcaseSection() {
   return (
     <section className="bg-white py-24 md:py-32 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
@@ -121,3 +121,5 @@ const IntegrationCard = ({ name, description, icon }: { name: string; descriptio
     </Card>
   );
 }
+
+export const IntegrationsSection = IntegrationsShowcaseSection;

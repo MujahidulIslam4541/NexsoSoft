@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import SmoothScroll from "@/components/smooth-scroll";
+import SmoothScroll from "@/components/common/SmoothScroll";
 import "./globals.css";
 
 // Font variables for system sans and mono

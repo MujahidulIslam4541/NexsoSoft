@@ -40,7 +40,7 @@ function StepLottie({ src }: { src: string }) {
 
 import { PROCESS_STEPS, LOTTIE_URLS, type ProcessStep } from '@/constants/process';
 
-export default function DevelopmentProcess({
+export default function DevelopmentProcessSection({
   initialSteps = PROCESS_STEPS,
 }: {
   initialSteps?: ProcessStep[];
@@ -101,3 +101,5 @@ export default function DevelopmentProcess({
     </section>
   );
 }
+
+export const DevelopmentProcess = DevelopmentProcessSection;

@@ -81,7 +81,7 @@ function ServiceCard({
   );
 }
 
-export default function Features() {
+export default function FeaturesSection() {
   return (
     <MotionConfig reducedMotion="user">
       <section
@@ -149,3 +149,4 @@ export default function Features() {
     </MotionConfig>
   );
 }
+export const Features = FeaturesSection;

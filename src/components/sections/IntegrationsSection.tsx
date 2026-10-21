@@ -4,9 +4,9 @@ import {
   SiMongodb, SiRedis, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs,
 } from 'react-icons/si';
 import {FaAws} from 'react-icons/fa';
-import {LogoIcon} from '@/components/logo';
+import {LogoIcon} from '@/components/common/Logo';
 import {cn} from '@/lib/utils';
-import {InfiniteSlider} from '@/components/infinite-slider';
+import {InfiniteSlider} from '@/components/common/InfiniteSlider';
 
 const TECH_ROW_1 = [
   {name: 'OpenAI',      icon: <SiOpenai      className="text-slate-800 dark:text-slate-200" />},

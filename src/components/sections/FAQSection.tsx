@@ -24,7 +24,7 @@ import { FAQ_ITEMS, type FAQItem } from "@/constants/faq";
 
 const faqItems: FAQItem[] = FAQ_ITEMS;
 
-export default function FAQsThree({
+export default function FAQSection({
   initialFAQs
 }: {
   initialFAQs?: {
@@ -133,3 +133,5 @@ export default function FAQsThree({
     </section>
   );
 }
+
+export const FAQsThree = FAQSection;

@@ -1,12 +1,12 @@
-import HeroSection from '@/components/hero-section';
-import Features from '@/components/features-1';
-import IntegrationsSection from '@/components/integrations-7';
-import Stats from '@/components/stats-3';
-import FAQSection from '@/components/faqs-3';
-import Contact from '@/components/contact-1';
-import Testimonials from '@/components/testimonials-1';
-import DevelopmentProcess from '@/components/development-process';
-import FooterSection from '@/components/footer-two';
+import HeroSection from '@/components/sections/HeroSection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
+import IntegrationsSection from '@/components/sections/IntegrationsSection';
+import DevelopmentProcessSection from '@/components/sections/DevelopmentProcessSection';
+import StatsSection from '@/components/sections/StatsSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import FAQSection from '@/components/sections/FAQSection';
+import ContactSection from '@/components/sections/ContactSection';
+import Footer from '@/components/layout/Footer';
 import { HERO_DATA } from '@/constants/hero';
 
 export default function Home() {
@@ -15,21 +15,21 @@ export default function Home() {
       <HeroSection heroData={HERO_DATA} />
 
       <div id="features">
-        <Features />
+        <FeaturesSection />
       </div>
 
       <IntegrationsSection />
 
       <div id="solution">
-        <DevelopmentProcess />
+        <DevelopmentProcessSection />
       </div>
 
       <div id="stats">
-        <Stats />
+        <StatsSection />
       </div>
 
       <div id="testimonials">
-        <Testimonials />
+        <TestimonialsSection />
       </div>
 
       <div id="about">
@@ -37,10 +37,10 @@ export default function Home() {
       </div>
 
       <div id="contact">
-        <Contact />
+        <ContactSection />
       </div>
 
-      <FooterSection />
+      <Footer />
     </div>
   );
 }

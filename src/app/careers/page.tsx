@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { CAREER_JOBS } from '@/constants/careers';
 import { MapPin, Briefcase, Clock, DollarSign, ArrowRight, Users, Zap } from 'lucide-react';
-import { HeroHeader } from '@/components/header';
-import FooterTwo from '@/components/footer-two';
+import { Header } from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 export const metadata = {
   title: 'Careers — StackMajix | Join Our Team',
@@ -24,7 +24,7 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 font-outfit">
-      <HeroHeader />
+      <Header />
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-white dark:bg-slate-950">
@@ -171,7 +171,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <FooterTwo />
+      <Footer />
     </div>
   );
 }

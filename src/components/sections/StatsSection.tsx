@@ -45,7 +45,7 @@ function StatBlock({value, suffix, label, isText = false, delay = 0}: {
   }, [delay]);
 
   return (
-    <div ref={blockRef} className="stat-block tilt-card-3d group text-center space-y-3 p-8 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-md cursor-default transition-all duration-300">
+    <div ref={blockRef} className="stat-block cursor-pointer tilt-card-3d group text-center space-y-3 p-8 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-md  transition-all duration-500">
       {isText && (
         <div className="flex justify-center mb-1 tilt-card-3d-child">
           <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/50">
@@ -377,7 +377,7 @@ function InteractiveWorldMap({ setActiveNode }: WorldMapProps) {
   );
 }
 
-export default function Stats({
+export default function StatsSection({
   initialStats
 }: {
   initialStats?: {
@@ -422,11 +422,11 @@ export default function Stats({
   return (
     <section className="relative bg-white dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden py-28 transition-colors duration-300">
       {/* Top glow line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
       {/* Hero grid bg */}
       <div className="absolute inset-0 hero-grid opacity-15 dark:opacity-10 pointer-events-none" aria-hidden />
       {/* Radial center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[800px] h-64 rounded-full pointer-events-none"
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-200 h-64 rounded-full pointer-events-none"
         style={{background: 'radial-gradient(circle, rgba(16,185,129,0.03) 0%, transparent 70%)'}}
         aria-hidden />
 
@@ -475,15 +475,15 @@ export default function Stats({
 
           {/* Bottom Row: Active Regions & Indicators */}
           <div className="flex flex-wrap gap-3 mt-auto">
-            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-[150px] animate-float">
+            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-37.5 animate-float">
               <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Nodes Active</span>
               <span className="text-sm font-bold tracking-tight">{activeNode ? activeNode.nodes : '14M+ Globally'}</span>
             </div>
-            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-[150px] animate-float-delayed">
+            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-37.5 animate-float-delayed">
               <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Data Flow</span>
               <span className="text-sm font-bold text-emerald-500 dark:text-emerald-400 tracking-tight">{activeNode ? activeNode.flow : '8.4 TB/s'}</span>
             </div>
-            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-[150px] hidden sm:flex animate-float">
+            <div className="hud-glass rounded-xl p-3 flex flex-col gap-1 shadow-lg max-w-37.5 sm:flex animate-float">
               <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Security State</span>
               <span className="text-sm font-bold text-teal-600 dark:text-teal-400 tracking-tight">AES_256 SECURE</span>
             </div>
@@ -497,3 +497,4 @@ export default function Stats({
     </section>
   );
 }
+export const Stats = StatsSection;

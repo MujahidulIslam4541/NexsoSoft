@@ -24,7 +24,7 @@ import {
   Zap,
   type LucideIcon,
 } from 'lucide-react';
-import {HeroHeader} from './header';
+import {HeroHeader} from '@/components/layout/Header';
 import {HERO_DATA, type HeroData} from '@/constants/hero';
 
 /* ═════════════ CONTENT (এখানে নিজের সত্যি তথ্য বসাও) ═════════════ */
@@ -32,7 +32,7 @@ const QUOTE_HREF = '#contact';
 const HIGHLIGHT = new Set(['scalable', 'software', 'solutions', 'stunning', 'drive', 'results']);
 
 const STATS = [
-  {value: '50+', label: 'Projects delivered'},
+  {value: '30+', label: 'Projects delivered'},
   {value: '15+', label: 'Clients worldwide'},
   {value: '24h', label: 'Reply time'},
 ];

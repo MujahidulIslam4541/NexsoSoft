@@ -1,4 +1,4 @@
-import { Logo } from '@/components/logo';
+import { Logo } from '@/components/common/Logo';
 import Link from 'next/link';
 
 import {FOOTER_LINKS} from '@/constants/navigation';
@@ -115,3 +115,5 @@ export default function FooterSection() {
     </footer>
   );
 }
+
+export { FooterSection, FooterSection as Footer, FooterSection as FooterTwo };

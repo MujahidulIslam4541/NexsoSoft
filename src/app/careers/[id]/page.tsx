@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { HeroHeader } from '@/components/header';
-import FooterTwo from '@/components/footer-two';
+import { Header } from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import {
   MapPin, Briefcase, DollarSign, Clock, ArrowLeft, Send,
   CheckCircle2, User, Mail, Phone, ExternalLink,
@@ -67,7 +67,7 @@ export default function JobDetailPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 font-outfit">
-      <HeroHeader />
+      <Header />
 
       <main className="max-w-6xl mx-auto px-6 pt-28 pb-24">
         {/* Back link */}
@@ -280,7 +280,7 @@ export default function JobDetailPage() {
         </div>
       </main>
 
-      <FooterTwo />
+      <Footer />
     </div>
   );
 }

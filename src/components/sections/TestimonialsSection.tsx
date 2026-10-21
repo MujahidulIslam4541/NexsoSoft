@@ -18,7 +18,7 @@ function Stars() {
   );
 }
 
-export default function Testimonials({
+export default function TestimonialsSection({
   initialTestimonials
 }: {
   initialTestimonials?: {
@@ -166,3 +166,5 @@ export default function Testimonials({
     </section>
   );
 }
+
+export const Testimonials = TestimonialsSection;

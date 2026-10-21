@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import {cn} from '../lib/utils';
-import logoPrimary from '../../public/logo-primary.png';
+import {cn} from '@/lib/utils';
+import logoPrimary from '../../../public/logo-primary.png';
 
 export const Logo = ({className}: {className?: string}) => {
   return (
